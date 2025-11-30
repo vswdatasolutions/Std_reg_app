@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">FREE Hostel Entrance Exam 2025-26</h2>
+        <p class="text-center">A/c & Non-A/c Hostel for Boys and Girls</p>
+        <p class="text-center font-weight-bold">Exam Date: 23 February 2025 (Sunday)</p>
+        <p class="text-center">Batch Timing: <strong>11:30 AM to 02:00 PM</strong> & <strong>02:15 PM to 05:15 PM</strong></p>
+        <p class="text-center"><em>Organized for the development of economically and socially backward students.</em></p>
+        
+
+
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Admin Dashboard</h2>
+
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="alert-container">
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Search and Filters -->
+        <form class="form-inline mb-3" method="GET" action="{{ url_for('admin_dashboard') }}">
+            <input type="text" name="search" class="form-control mr-2" placeholder="Search by Name or ID" value="{{ request.args.get('search', '') }}">
+            <select name="class" class="form-control mr-2">
+                <option value="">All Classes</option>
+                <option value="10th" {% if request.args.get('class') == '10th' %}selected{% endif %}>10th</option>
+                <option value="6th" {% if request.args.get('class') == '6th' %}selected{% endif %}>6th</option>
+                <option value="1st PUC Science" {% if request.args.get('class') == '1st PUC Science' %}selected{% endif %}>1st PUC Science</option>
+            </select>
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+      
+     
+        <!-- Student Table -->
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Hall Ticket Number</th>
+                        <th>Name</th>
+                        <th>Class</th>
+                        <th>UTR Number</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if students %}
+                        {% for student in students %}
+                            <tr>
+                                <td>{{ student.id }}</td>
+                                <td>{{ student.hall_ticket }}</td>
+                                <td>{{ student.name }}</td>
+                                <td>{{ student.class }}</td>
+                                <td>{{ student.payment_utr }}</td>
+                                <td>
+                                    <span class="badge {% if student.verified %}badge-success{% else %}badge-warning{% endif %}">
+                                        {{ 'Verified' if student.verified else 'Not Verified' }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <!-- Verify Button -->
+                                        {% if not student.verified %}
+                                            <form action="{{ url_for('verify_student', student_id=student.id) }}" method="POST" style="display: inline;">
+                                                <button type="submit" class="btn btn-primary btn-sm" onclick="return confirm('Are you sure you want to verify this student?')">Verify</button>
+                                            </form>
+                                        {% endif %}
+
+                                        <!-- Generate Hall Ticket Button -->
+                                        {% if student.verified %}
+                                            <form action="{{ url_for('generate_hall_ticket', student_id=student.id) }}" method="POST" style="display: inline;">
+                                                <button type="submit" class="btn btn-success btn-sm">Generate Hall Ticket</button>
+                                            </form>
+
+
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="7" class="text-center">No students found</td>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        {% if pagination %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    {% if pagination.has_prev %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ url_for('admin_dashboard', page=pagination.prev_num) }}">Previous</a>
+                        </li>
+                    {% endif %}
+                    {% for page_num in pagination.iter_pages() %}
+                        {% if page_num %}
+                            <li class="page-item {% if page_num == pagination.page %}active{% endif %}">
+                                <a class="page-link" href="{{ url_for('admin_dashboard', page=page_num) }}">{{ page_num }}</a>
+                            </li>
+                        {% else %}
+                            <li class="page-item disabled"><a class="page-link">...</a></li>
+                        {% endif %}
+                    {% endfor %}
+                    {% if pagination.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ url_for('admin_dashboard', page=pagination.next_num) }}">Next</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </nav>
+        {% endif %}
+        <br>
+        <form action="/download_csv" method="get">
+            <button type="submit" class="btn btn-primary">Download CSV</button>
+        </form>
+        
+    </br>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.5/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

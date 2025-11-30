@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hall Ticket - FREE Hostel Entrance Exam 2025-26</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .card {
+            border: none;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .card h4 {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .photo-container img,
+        .signature-container img {
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .instructions {
+            margin-top: 20px;
+            padding: 20px;
+            border: 1px solid #007bff;
+            border-radius: 10px;
+            background-color: #e9f7fe;
+        }
+        .instructions h5 {
+            color: #007bff;
+            margin-bottom: 15px;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .header {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="header">
+            <img src="static/img/QR code.jpg" alt="IQBAL PATEL SCHOOL Logo" class="logo">
+            <h6>ಶಿಕ್ಷಣದಲ್ಲಿ ಹಿಂದುಳಿದ ಕಲ್ಯಾಣ ಕರ್ನಾಟಕದ ಅಭಿವೃದ್ಧಿಗಾಗಿ ಆಯೋಜಿಸಿರುವ</h6>
+            <h6>ವಿದ್ಯಾರ್ಥಿಯ ಸರ್ವೋತಮುಖ ಬೆಳವಣಿಗೆಗಾಗಿ ಹಿಂದುಳಿದ ಹಾಗೂ ಬಡ ಕುಟುಂಬದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ ಉಚಿತ ವಸತಿ ಶಾಲೆಯ ಪ್ರವೇಶ ಅರ್ಜಿ 2025-26</h6>
+            <h6>ಪರೀಕ್ಷೆಯ ಹಾಲ್ ಟಿಕೆಟ್</h6>
+            <p class="text-center">A/c & Non-A/c Hostel for Boys and Girls</p>
+            <p class="text-center font-weight-bold">Exam Date: 23 February 2025 (Sunday)</p>
+            <p class="text-center">Batch Timing: <strong>11:30 AM to 02:00 PM</strong> & <strong>02:15 PM to 05:15 PM</strong></p>
+        </div>
+        <div class="card">
+            <h4>Hall Ticket</h4>
+            <table class="table table-bordered">
+                <tr>
+                    <th>Hall Ticket Number</th>
+                    <td>{{ student.hall_ticket }}</td>
+                </tr>
+                <tr>
+                    <th>Uploaded Photo</th>
+                    <td class="photo-container">
+                        <img src="{{ url_for('static', filename='uploads/' + student.photo.split('/')[-1]) }}" alt="Photo" style="width: 150px; height: 150px;">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Uploaded Signature</th>
+                    <td class="signature-container">
+                        <img src="{{ url_for('static', filename='uploads/' + student.signature.split('/')[-1]) }}" alt="Signature" style="width: 150px; height: 100px;">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Name of the Candidate</th>
+                    <td>{{ student.name }}</td>
+                </tr>
+                <tr>
+                    <th>Father's Name</th>
+                    <td>{{ student.father_name }}</td>
+                </tr>
+                <tr>
+                    <th>Date of Birth</th>
+                    <td>{{ student.dob }}</td>
+                </tr>
+                <tr>
+                    <th>Class</th>
+                    <td>{{ student.class }}</td>
+                </tr>
+                <tr>
+                    <th>Gender</th>
+                    <td>{{ student.gender }}</td>
+                </tr>
+                <tr>
+                    <th>Medium</th>
+                    <td>{{ student.medium }}</td>
+                </tr>
+                <tr>
+                    <th>Examination Centre Name</th>
+                    <td>{{ student.exam_center }}</td>
+                </tr>
+                <tr>
+                    <th> Signiture of Examiner</th>
+            </table>
+        </div>
+        <div class="instructions">
+            <h5>Instructions to the Candidates:</h5>
+            <ul>
+                <li>You are required to be present in the exam center 30 minutes before the exam.</li>
+                <li>Do not carry any belongings inside the exam center, including mobile phones, Bluetooth devices, or any electronic devices.</li>
+                <li>You are allowed to carry only one pen and pencil inside the exam center.</li>
+                <li>Bring your hall ticket and Aadhaar card for identification.</li>
+                <li>Attach the hall ticket to the application form as instructed.</li>
+                <li>Submit the duly filled application form by 12th February 2025.</li>
+                <li>For clarifications, contact: 9740307344 / 8971056786.</li>
+            </ul>
+            <h5>ಪರೀಕ್ಷಾರ್ಥಿಗಳಿಗೆ ನಿರ್ದೇಶನಗಳು:</h5>
+            <ul>
+                <li>ನೀವು ಪರೀಕ್ಷಾ ಕೇಂದ್ರಕ್ಕೆ 30 ನಿಮಿಷ ಮೊದಲು ಹಾಜರಾಗಬೇಕು.</li>
+                <li>ಮೊಬೈಲ್ ಫೋನ್, ಬ್ಲೂಟೂತ್ ಸಾಧನಗಳು ಅಥವಾ ಇತರ ಎಲೆಕ್ಟ್ರಾನಿಕ್ ಸಾಧನಗಳನ್ನು ಒಳಗೊಂಡಂತೆ ಯಾವುದೇ ವಸ್ತುಗಳನ್ನು ಪರೀಕ್ಷಾ ಕೇಂದ್ರಕ್ಕೆ ತರಬೇಡಿ.</li>
+                <li>ನೀವು ಪರೀಕ್ಷಾ ಕೇಂದ್ರಕ್ಕೆ ಕೇವಲ ಒಂದು ಪೆನ್ ಮತ್ತು ಪೆನ್ಸಿಲ್ ಅನ್ನು ಮಾತ್ರ ತೆಗೆದುಕೊಂಡು ಹೋಗಬಹುದು.</li>
+                <li>ನಿಮ್ಮ ಹಾಲ್ ಟಿಕೆಟ್ ಮತ್ತು ಆಧಾರ್ ಕಾರ್ಡ್ ಅನ್ನು ಗುರುತಿಗಾಗಿ ತರಲು ಮರೆಯಬೇಡಿ.</li>
+                <li>ನಿರ್ದೇಶಿಸಿದಂತೆ ಹಾಲ್ ಟಿಕೆಟ್ ಅನ್ನು ಅರ್ಜಿ ನಮೂನೆಗೆ ಜೋಡಿಸಿ.</li>
+                <li>ಪೂರ್ಣಗೊಂಡ ಅರ್ಜಿ ನಮೂನೆಯನ್ನು 2025ರ ಫೆಬ್ರವರಿ 12ರೊಳಗೆ ಸಲ್ಲಿಸಿ.</li>
+                <li>ಸ್ಪಷ್ಟೀಕರಣಗಳಿಗಾಗಿ ಸಂಪರ್ಕಿಸಿ: 9740307344 / 8971056786.</li>
+            </ul>
+        </div>
+        <div class="text-center mt-4">
+            <button onclick="window.print()" class="btn btn-primary">Print Hall Ticket</button>
+        </div>
+    </div>
+</body>
+</html>
