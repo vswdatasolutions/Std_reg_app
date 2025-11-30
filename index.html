@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color:#fffb00;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color:rgb(11, 60, 113);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+        .alert-success {
+            margin-top: 20px;
+        }
+        .header {
+            background-color: #0a2b4e;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        }
+        .marquee {
+            color: white;
+            font-size: 20px;
+        }
+        .section-title {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #007bff;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #004080;
+            color: white;
+            margin-top: 20px;
+        }
+        .footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="static/img/logo.jpg" alt="IQBAL PATEL SCHOOL Logo" class="logo">
+        <h6>ಶಿಕ್ಷಣದಲ್ಲಿ ಹಿಂದುಳಿದ ಕಲ್ಯಾಣ ಕರ್ನಾಟಕದ ಅಭಿವೃದ್ಧಿಗಾಗಿ ಆಯೋಜಿಸಿರುವ</h6>
+        <h6>ವಿದ್ಯಾರ್ಥಿಯ ಸರ್ವೋತಮುಖ ಬೆಳವಣಿಗೆಗಾಗಿ ಹಿಂದುಳಿದ ಹಾಗೂ ಬಡ ಕುಟುಂಬದ ವಿದ್ಯಾರ್ಥಿಗಳಿಗಾಗಿ ಉಚಿತ ವಸತಿ ಶಾಲೆಯ ಪ್ರವೇಶ ಅರ್ಜಿ 2025-26</h6>
+        <b><h2>IQBAL PATEL PRIMARY & HIGH SCHOOL</h2>
+        <h2>Residential & Non Residential SHAIK MOINUDDIN PU COLLEGE</h2></b>
+        <h6>ಕೊಂಗಲಿ ರಸ್ತೆ, ಹುಲ್ಸೂರ್ - 585 416 ತಾ. ಹುಲ್ಸೂರ್ ಜಿಲ್ಲೆ ಬೀದರ್</h6>
+        <h4>Free Hostel Entrance Exam 2026-27</h4>
+        <marquee behavior="scroll" direction="left" scrollamount="5">
+            Admissions are open for 2026! | ನಿಮ್ಮ ಭವಿಷ್ಯವನ್ನು ನಿರ್ಧರಿಸಿ ಇಂದು ಪ್ರವೇಶ ಪರೀಕ್ಷೆಗಾಗಿ ನೋಂದಣಿ ಮಾಡಿ! | Parent-teacher meeting scheduled for Jan 10th.
+        </marquee>
+    </div>
+    <div class="container mt-5">
+        <h3>Student Registration</h3>
+        <form action="/register" method="POST" enctype="multipart/form-data">
+            <div class="section-title">Student Information</div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Student Name (Capital):</label>
+                    <input type="text" class="form-control" id="name" name="name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="father_name">Father's Name (Capital):</label>
+                    <input type="text" class="form-control" id="father_name" name="father_name" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="mother_name">Mother's Name (Capital):</label>
+                    <input type="text" class="form-control" id="mother_name" name="mother_name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" class="form-control" id="dob" name="dob" required>
+                </div>
+                
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" class="form-control" required>
+                    <option value="">Select Gender</option>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                    <option value="Transgender">Transgender</option>
+                </select>
+            </div>
+            <div class="section-title">Address Information</div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="village">Village:</label>
+                    <input type="text" class="form-control" id="village" name="village" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="taluka">Taluka:</label>
+                    <input type="text" class="form-control" id="taluka" name="taluka" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="district">District:</label>
+                    <input type="text" class="form-control" id="district" name="district" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="pin">Pin Code:</label>
+                    <input type="text" class="form-control" id="pin" name="pin" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="residential_address">Residential Address:</label>
+                    <textarea class="form-control" id="residential_address" name="residential_address" required></textarea>
+                </div>
+            </div>
+            
+            <div class="section-title">Previous School Information</div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="previous_school">Previous School Name And Address:</label>
+                    <textarea class="form-control" id="previous_school" name="previous_school" required></textarea>
+                </div>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="class">Class:</label>
+                    <input type="text" class="form-control" id="class" name="class" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="academic_year">Academic Year:</label>
+                    <input type="text" class="form-control" id="academic_year" name="academic_year" required>
+                </div>
+            </div>
+            <div class="section-title">Additional Information</div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="aadhar">Aadhar Number:</label>
+                    <input type="text" class="form-control" id="aadhar" name="aadhar" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="religion">Religion:</label>
+                    <select id="religion" name="religion" class="form-control" required>
+                        <option value="">Select religion</option>
+                        <option value="Hindu">Hindu</option>
+                        <option value="Muslim">Muslim</option>
+                        <option value="Christian">Christian</option>
+                        <option value="Sikh">Sikh</option>
+                        <option value="Buddhist">Buddhist</option>
+                        <option value="Jain">Jain</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+                
+                 <div class="form-group col-md-6">
+                    <label for="caste">Caste:</label>
+                    <select id="caste" name="caste" class="form-control" required>
+                        <option value="">Select caste</option>
+
+                        <option value="General">General</option>
+                        <option value="SC">SC</option>
+                        <option value="ST">ST</option>
+                        <option value="OBC">OBC</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="nationality">Nationality:</label>
+                    <input type="text" class="form-control" id="nationality" name="nationality" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="mother_tongue">Mother Tongue:</label>
+                    <input type="text" class="form-control" id="mother_tongue" name="mother_tongue" required>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="medium">Medium:</label>
+                    <select class="form-control" id="medium" name="medium" required>
+                        <option value="">Select Medium</option>
+                        <option value="Kannada">Kannada</option>
+                        <option value="English">English</option>
+                        <option value="Urdu">Urdu</option>
+                        <option value="Others">Others</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section-title">Contact Information</div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="phone1">Phone Number 1:</label>
+                    <input type="text" class="form-control" id="phone1" name="phone1" pattern="\d{10}" title="Please enter a valid 10-digit phone number" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="phone2">Phone Number 2:</label>
+                    <input type="text" class="form-control" id="phone2" name="phone2" pattern="\d{10}" title="Please enter a valid 10-digit phone number">
+                </div>
+            </div>
+
+            <div class="section-title">Admission Details</div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="admission_for">Admission For:</label>
+                    <select class="form-control" id="admission_for" name="admission_for" required>
+                        <option value="">Select admission For</option>
+                        <option value="6">6th Grade</option>
+                        <option value="9">9th Grade</option>
+                        <option value="1st_PUC_Science">1st PUC Science</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="admission_type">Admission Type:</label>
+                    <select class="form-control" id="admission_type" name="admission_type" required>
+                        <option value="">Select admission Type</option>
+                        <option value="Residential">Residential</option>
+                        <option value="Non_Residential">Non Residential</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="exam_center">Choice Your Near by Entrance Exam center:</label>
+                    <select class="form-control" id="exam_center" name="exam_center" required>
+                        <option value="">Select Your near by Exam Center</option>
+                        <option value="SAMRAT PVT ITI COLLEGE Kallur Road Wanjari, HUMNABAD Dist. Bidar">SAMRAT PVT ITI COLLEGE Kallur Road Wanjari, HUMNABAD Dist. Bidar</option>
+                        <option value="VISION PU COLLEGE, Tripurantha Road BASAVAKALYAN Dist. Bidar">VISION PU COLLEGE, Tripurantha Road BASAVAKALYAN Dist. Bidar</option>
+                        <option value="NATIONAL PUBLIC SCHOOL, OTHAGI CROSS, OTHAGI">NATIONAL PUBLIC SCHOOL, OTHAGI CROSS, OTHAGI</option>
+                        <option value="THE GOLDEN VALLEY INTERNATIONAL SCHOOL Rampur Cross Aurad Road, KAMALNAGAR Dist. Bidar">THE GOLDEN VALLEY INTERNATIONAL SCHOOL Rampur Cross Aurad Road, KAMALNAGAR Dist. Bidar</option>
+                        <option value="GURU NANJESHWAR PRIMARY & HIGH SCHOOL SOLEPET Tq. Chincholi Dist. Kalaburagi">GURU NANJESHWAR PRIMARY & HIGH SCHOOL SOLEPET Tq. Chincholi Dist. Kalaburagi</option>
+                        <option value="BHARAT PUBLIC SCHOOL backside CB Coolege L.C Road Bhalki Dist.Bidar">BHARAT PUBLIC SCHOOL backside CB Coolege L.C Road Bhalki Dist.Bidar</option>
+                        <option value="IQBAL PATEL PRIMARY & HIGH SCHOOL KONGALI ROAD HULSOOR Dist. Bidar">IQBAL PATEL PRIMARY & HIGH SCHOOL KONGALI ROAD HULSOOR Dist. Bidar</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section-title">Upload Documents</div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="photo">Passport Photo (Max size: 120KB):</label>
+                    <input type="file" class="form-control" id="photo" name="photo" accept="image/*" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="signature">Upload Signature (Max size: 120KB):</label>
+                    <input type="file" class="form-control" id="signature" name="signature" accept="image/*" required>
+                </div>
+            </div>
+            <script>
+                document.getElementById('photo').onchange = function() {
+                    if (this.files[0].size > 120 * 1024) {
+                        alert('Photo size must be less than 120KB');
+                        this.value = '';
+                    }
+                };
+                document.getElementById('signature').onchange = function() {
+                    if (this.files[0].size > 120 * 1024) {
+                        alert('Signature size must be less than 120KB');
+                        this.value = '';
+                    }
+                };
+            </script>
+
+            <div class="section-title">Payment Information</div>
+            <img src="static/img/QR code.jpg" alt="IQBAL PATEL SCHOOL Logo" class="QR code">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="payment_utr">Payment UTR Number:</label>
+                    <input type="text" class="form-control" id="payment_utr" name="payment_utr" pattern="\d{12}" title="Please enter a valid 12-digit UTR number" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+        
+    
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-success mt-3">
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+    <br>
+    <div class="footer">
+        <p>&copy; 2025 IQBAL PATEL PRIMARY & HIGH SCHOOL. All Rights Reserved.</p>
+        <p>Developed by <a href="https://www.vswdatasolutions.in" target="_blank" style="color: #00BFFF;">VSWA Data Solutions</a></p>
+    </div>
+
+</br>
+</body>
+</html>
+<!-- Compare this snippet from templates/hallticket.html: -->
